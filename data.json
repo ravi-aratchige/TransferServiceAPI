@@ -1,0 +1,12 @@
+{
+  "accounts": [
+    { "account_number": "123456", "balance": 1000.0 },
+    { "account_number": "654321", "balance": 500.0 },
+    { "account_number": "111111", "balance": 200.0 },
+    { "account_number": "222222", "balance": 300.0 }
+  ],
+  "transactions": [
+    { "source_account": "123456", "destination_account": "654321", "amount": 150.0 },
+    { "source_account": "222222", "destination_account": "111111", "amount": 50.0 }
+  ]
+}
