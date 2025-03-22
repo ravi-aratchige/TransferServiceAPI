@@ -10,3 +10,8 @@ class AccountModel(BaseModel):
         ge=0,
         description="Account balance cannot be negative.",
     )
+
+
+# Make module safely exportable
+if __name__ == "__main__":
+    pass
