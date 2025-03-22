@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routes.accounts import router as accounts_router
 from fastapi.middleware.cors import CORSMiddleware
 
 # Instantiate FastAPI application
@@ -6,6 +7,9 @@ app = FastAPI(
     title="TransferServiceAPI",
     description="RESTful API for mocking transfers between accounts. Internship Programming Assignment - Group Technology at Dialog.",
 )
+
+# Bind routers
+app.include_router(accounts_router)
 
 
 # Define allowed origins for CORS
