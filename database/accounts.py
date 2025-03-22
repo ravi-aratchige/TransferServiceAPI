@@ -2,31 +2,44 @@ import json
 from typing import List
 from settings import DATA_FILE_PATH
 from models.account import AccountModel
+from database.base import AbstractDataManager
 
 DB = DATA_FILE_PATH
 
 
-class AccountDataManager:
-    @staticmethod
-    def load_accounts() -> List[AccountModel]:
-        """Load all accounts from the data source (data file or database).
+class AccountDataManager(AbstractDataManager):
+    def __init__(self, name="accounts", model=AccountModel):
+        super().__init__(name, model)
 
-        Returns:
-            List[AccountModel]: List containing all of the accounts.
-        """
-
-        # Read all data from data file
+    def create(self, new_account):
+        """Create and save a new account, ensuring account_number is unique."""
         with open(DB, "r") as db:
             data = json.load(db)
 
-        # Initialize empty accounts dict to load data from data file
-        accounts = {}
+        if self.name not in data:
+            data[self.name] = []
 
-        for account in data["accounts"]:
-            # Convert JSON account dict to account model object
-            account_obj = AccountModel(**account)
+        # Convert model object to dictionary
+        new_account_dict = (
+            new_account.dict() if hasattr(new_account, "dict") else vars(new_account)
+        )
 
-            # Add account model object to accounts dict
-            accounts[account["account_number"]] = account_obj
+        # Check if the account already exists
+        for item in data[self.name]:
+            if item["account_number"] == new_account_dict["account_number"]:
+                raise ValueError(
+                    f"Account with account_number {new_account_dict['account_number']} already exists."
+                )
 
-        return accounts
+        # Append and save the new record
+        data[self.name].append(new_account_dict)
+
+        with open(DB, "w") as db:
+            json.dump(data, db, indent=4)
+
+        return new_account_dict  # Return the created account
+
+
+# Make module safely exportable
+if __name__ == "__main__":
+    pass
