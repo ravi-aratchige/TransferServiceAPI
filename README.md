@@ -19,32 +19,37 @@ I selected FastAPI as the web framework since
 
 ## Project Structure 🌲
 
-```
+```shell
 .
-├── data/                 # Data managers for handling accounts and transfers  
+├── data/                 # Data managers module
 │   ├── accounts.py       # Manages account-related operations  
 │   ├── base.py           # Abstract base class for data managers  
-│   ├── __init__.py       # Package initializer  
+│   ├── __init__.py       # Package initializer
 │   └── transfers.py      # Manages transfer-related operations  
-├── database.py           # In-memory database simulation (live & test modes)   
-├── LICENSE               # License file for the project  
-├── main.py               # Entry point of the FastAPI application  
 ├── models/               # Data models for API requests & responses  
 │   ├── account.py        # Account model definition  
 │   ├── __init__.py       # Package initializer  
 │   └── transfer.py       # Transfer model definition  
-├── README.md             # Project documentation  
-├── requirements.txt      # Dependencies required to run the project  
 ├── routes/               # API route definitions  
 │   ├── accounts.py       # Account-related API endpoints  
 │   ├── __init__.py       # Package initializer  
 │   └── transfers.py      # Transfer-related API endpoints  
-├── settings.py           # Configuration settings (e.g., environment variables)   
-└── tests/                # Unit tests for the API  
-    ├── conftest.py       # Shared test fixtures (e.g., test client, database reset)  
-    ├── __init__.py       # Package initializer  
-    ├── test_accounts.py  # Tests for account-related functionality  
-    └── test_transfers.py # Tests for transfer-related functionality  
+├── tests/                # Unit tests for the API  
+│   ├── conftest.py       # Shared test fixtures (e.g. test client, DB reset)  
+│   ├── __init__.py       # Package initializer  
+│   ├── test_accounts.py  # Tests for account-related functionality  
+│   └── test_transfers.py # Tests for transfer-related functionality  
+├── Assignment.pdf        # Assignment document for the project  
+├── database.py           # In-memory database simulation file  
+├── Dockerfile            # Docker configuration file
+├── LICENSE               # License file
+├── main.py               # Entry point of the FastAPI application  
+├── README.md             # Project documentation  
+├── requirements.txt      # Dependencies required to run the project  
+├── settings.py           # Configuration settings for the API  
+├── SETUP.md              # Setup instructions for the project  
+├── swagger.png           # Screenshot of the API documentation
+└── tests.png             # Screenshot of test results   
 ```
 
 ## Setup ⚙️
