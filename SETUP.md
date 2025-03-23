@@ -1,4 +1,4 @@
-# TransferServiceAPI - Setup
+# TransferServiceAPI - Setup ⚙️
 
 TransferServiceAPI has very few prerequisites, which are probably already installed on your system:
 
@@ -68,7 +68,7 @@ pip install -r requirements.txt
 
 [`requirements.txt`](https://github.com/ravi-aratchige/TransferServiceAPI/blob/main/requirements.txt) includes all of the project's dependencies and their respective versions.
 
-### 4. Start FastAPI App
+## 4. Start FastAPI App
 
 Start up the FastAPI server:
 
@@ -79,6 +79,24 @@ fastapi dev main.py
 FastAPI will then serve TransferServiceAPI on [http://localhost:8000](http://localhost:8000). Navigate to [http://localhost:8000/docs](http://localhost:8000/docs) to view the SwaggerUI for TransferServiceAPI:
 
 ![](swagger.png)
+
+## Testing 🧪
+
+TransferServiceAPI has been unit-tested using **Pytest**. To run the unit tests:
+
+```shell
+pytest
+```
+
+To run unit tests with coverage:
+
+```shell
+pytest --cov
+```
+
+You can view the results of running the tests in the terminal:
+
+![](tests.png)
 
 ---
 
