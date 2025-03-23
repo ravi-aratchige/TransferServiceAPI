@@ -76,4 +76,10 @@ Start up the FastAPI server:
 fastapi dev main.py
 ```
 
-FastAPI will then serve TransferServiceAPI on [http://localhost:8000](http://localhost:8000). Navigate to [http://localhost:8000/docs](http://localhost:8000/docs) to view the SwaggerUI for TransferServiceAPI.
+FastAPI will then serve TransferServiceAPI on [http://localhost:8000](http://localhost:8000). Navigate to [http://localhost:8000/docs](http://localhost:8000/docs) to view the SwaggerUI for TransferServiceAPI:
+
+![](swagger.png)
+
+---
+
+Made with ❤️ by Ravindu Aratchige
