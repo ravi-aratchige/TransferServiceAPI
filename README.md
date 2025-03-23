@@ -1,6 +1,6 @@
 # TransferServiceAPI
 
-This is my take on the **Internship Programming Assignment** - Network Analytics and Automation Team, Group Technology at Dialog.
+This is my submission for the **Internship Programming Assignment** - Network Analytics and Automation Team, Group Technology at Dialog.
 
 ## Technologies 🔧
 
