@@ -1,18 +1,28 @@
 from settings import TEST_MODE
 from database import db, test_db
 from fastapi import HTTPException
+from data.base import BaseDataManager
 from models.account import AccountModel
-from data.base import AbstractDataManager
 
 
-class AccountDataManager(AbstractDataManager):
+class AccountDataManager(BaseDataManager):
 
     def __init__(self, name="accounts", model=AccountModel, test_mode=TEST_MODE):
         super().__init__(name, model, test_mode)
         self.database = test_db if test_mode else db
 
     def create(self, new_account: AccountModel):
-        """Create and save a new account, ensuring account_number is unique."""
+        """Create and save a new account, ensuring account_number is unique.
+
+        Args:
+            new_account (AccountModel): the new account's Pydantic object
+
+        Raises:
+            HTTPException: 400 error if account already exists
+
+        Returns:
+            dict: newly created account
+        """
 
         # Ensure the 'accounts' category exists
         if self.name not in self.database:
