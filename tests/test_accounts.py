@@ -20,6 +20,28 @@ def test_create_account(client: TestClient):
     }
 
 
+def test_get_account(client: TestClient):
+    """Test retrieving an existing account via API."""
+
+    # Create an account first
+    client.post(
+        url="/accounts/",
+        json={"account_number": "123456", "balance": 250.0},
+    )
+
+    # Retrieve the account
+    response = client.get("/accounts/123456")
+
+    # Check status code (must be 200)
+    assert response.status_code == 200
+
+    # Check that the retrieved account matches the created one
+    assert response.json() == {
+        "data": {"account_number": "123456", "balance": 250.0},
+        "message": "Account retrieved successfully",
+    }
+
+
 def test_duplicate_account(client: TestClient):
     """Test creating a duplicate account should return an error."""
 

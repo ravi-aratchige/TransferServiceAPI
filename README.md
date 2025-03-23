@@ -47,7 +47,7 @@ I selected FastAPI as the web framework since
     └── test_transfers.py # Tests for transfer-related functionality  
 ```
 
-## Setup
+## Setup ⚙️
 
 Refer to [SETUP.MD](https://github.com/ravi-aratchige/TransferServiceAPI/blob/main/SETUP.md) for instructions on how to setup this project locally.
 
