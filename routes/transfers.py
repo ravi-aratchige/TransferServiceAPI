@@ -1,6 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, status
 from models.transfer import TransferModel
-from database.transfers import TransferDataManager
+from data.transfers import TransferDataManager
 
 # Initialize transfers router
 router = APIRouter(
@@ -14,7 +14,7 @@ router = APIRouter(
 
 
 # Test router health
-@router.get("/ping")
+@router.get("/ping", status_code=status.HTTP_200_OK)
 def test_transfers_router():
     return {
         "message": "TransferServiceAPI Transfers router is up and running.",
@@ -22,7 +22,7 @@ def test_transfers_router():
 
 
 # Get all transfers
-@router.get("/")
+@router.get("/", status_code=status.HTTP_200_OK)
 def get_all_transfers():
     # Initialize transfer data manager
     data_manager = TransferDataManager()
@@ -37,7 +37,7 @@ def get_all_transfers():
 
 
 # Create new transfer
-@router.post("/")
+@router.post("/", status_code=status.HTTP_201_CREATED)
 def create_transfer(new_transfer: TransferModel):
     # Initialize transfer data manager
     data_manager = TransferDataManager()
