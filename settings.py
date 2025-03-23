@@ -1,2 +1,2 @@
 # Set running mode (live vs testing)
-TEST_MODE = True
+TEST_MODE = False
